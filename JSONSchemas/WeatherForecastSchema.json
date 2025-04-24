@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenWeatherMap 5-Day Forecast Response",
+  "type": "object",
+  "required": ["cod", "message", "cnt", "list", "city"],
+  "properties": {
+    "cod": {
+      "type": "string"
+    },
+    "message": {
+      "type": "number"
+    },
+    "cnt": {
+      "type": "integer"
+    },
+    "list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dt", "main", "weather", "clouds", "wind", "visibility", "pop", "sys", "dt_txt"],
+        "properties": {
+          "dt": {
+            "type": "integer"
+          },
+          "main": {
+            "type": "object",
+            "required": ["temp", "feels_like", "temp_min", "temp_max", "pressure", "sea_level", "grnd_level", "humidity", "temp_kf"],
+            "properties": {
+              "temp": { "type": "number" },
+              "feels_like": { "type": "number" },
+              "temp_min": { "type": "number" },
+              "temp_max": { "type": "number" },
+              "pressure": { "type": "integer" },
+              "sea_level": { "type": "integer" },
+              "grnd_level": { "type": "integer" },
+              "humidity": { "type": "integer" },
+              "temp_kf": { "type": "number" }
+            }
+          },
+          "weather": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "main", "description", "icon"],
+              "properties": {
+                "id": { "type": "integer" },
+                "main": { "type": "string" },
+                "description": { "type": "string" },
+                "icon": { "type": "string" }
+              }
+            }
+          },
+          "clouds": {
+            "type": "object",
+            "required": ["all"],
+            "properties": {
+              "all": { "type": "integer" }
+            }
+          },
+          "wind": {
+            "type": "object",
+            "required": ["speed", "deg", "gust"],
+            "properties": {
+              "speed": { "type": "number" },
+              "deg": { "type": "integer" },
+              "gust": { "type": "number" }
+            }
+          },
+          "visibility": { "type": "integer" },
+          "pop": { "type": "number" },
+          "sys": {
+            "type": "object",
+            "required": ["pod"],
+            "properties": {
+              "pod": { "type": "string" }
+            }
+          },
+          "dt_txt": { "type": "string" }
+        }
+      }
+    },
+    "city": {
+      "type": "object",
+      "required": ["id", "name", "coord", "country", "population", "timezone", "sunrise", "sunset"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "coord": {
+          "type": "object",
+          "required": ["lat", "lon"],
+          "properties": {
+            "lat": { "type": "number" },
+            "lon": { "type": "number" }
+          }
+        },
+        "country": { "type": "string" },
+        "population": { "type": "integer" },
+        "timezone": { "type": "integer" },
+        "sunrise": { "type": "integer" },
+        "sunset": { "type": "integer" }
+      }
+    }
+  }
+}

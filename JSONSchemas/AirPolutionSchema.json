@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenWeatherMap Air Pollution API Response",
+  "type": "object",
+  "required": ["coord", "list"],
+  "properties": {
+    "coord": {
+      "type": "object",
+      "required": ["lat", "lon"],
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lon": {
+          "type": "number"
+        }
+      }
+    },
+    "list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dt", "components", "main"],
+        "properties": {
+          "dt": {
+            "type": "integer"
+          },
+          "components": {
+            "type": "object",
+            "required": ["co", "no", "no2", "o3", "so2", "pm2_5", "pm10", "nh3"],
+            "properties": {
+              "co": {
+                "type": "number"
+              },
+              "no": {
+                "type": "number"
+              },
+              "no2": {
+                "type": "number"
+              },
+              "o3": {
+                "type": "number"
+              },
+              "so2": {
+                "type": "number"
+              },
+              "pm2_5": {
+                "type": "number"
+              },
+              "pm10": {
+                "type": "number"
+              },
+              "nh3": {
+                "type": "number"
+              }
+            }
+          },
+          "main": {
+            "type": "object",
+            "required": ["aqi"],
+            "properties": {
+              "aqi": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

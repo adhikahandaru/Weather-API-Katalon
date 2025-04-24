@@ -1,0 +1,25 @@
+# Katalon specific
+Reports/
+bin/
+Libs/
+.settings/
+.classpath
+.project
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# User-specific execution profiles
+Profiles/.DS_Store
+Profiles/*.properties
+
+# Test results
+*.tmp
